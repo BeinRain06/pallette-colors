@@ -6,6 +6,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --gap-layout: 30px;
+  --box-color-min-width: 180px;
+  --max-number-box: 5;
+  --total-size-available: 100%;
+
+  --gap-count: calc(var(--max-number-box) - 1);
+
+  --gap-total-width: calc(var(--gap-count) * var(--gap-layout));
+
+  --box-color-max-width: calc(
+    (var(--total-size-available) - var(--gap-total-width)) / var(--max-number-box)
+  );
+}
+
 /* font-family */
 
 /* // <uniquifier>: Use a unique and descriptive class name
@@ -57,7 +72,7 @@
 @media (min-width: 160px) {
   body {
     background-color: #f4f4f4;
-    /*  color:#cbe0f3; */
+    /* color:#8fbff7; */
   }
 
   #app {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import CardColors from './components/CardColors.vue'
 </script>
 
 <template>
@@ -113,7 +114,9 @@ import HelloWorld from './components/HelloWorld.vue'
         </div>
       </div>
       <div class="blue_color_wrapper">
-        <div id="light_blue" class="light_blue_container"></div>
+        <div id="light_blue" class="light_blue_container">
+          <CardColors label="blue-light" />
+        </div>
         <div id="medium_blue" class="medium_blue_container"></div>
         <div id="dark_blue" class="dark_blue_container"></div>
       </div>
