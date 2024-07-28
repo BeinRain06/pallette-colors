@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import CardColors from './components/CardColors.vue'
+import MyWebsiteColor from './components/MyWebsiteColor.vue'
 </script>
 
 <template>
@@ -120,6 +121,9 @@ import CardColors from './components/CardColors.vue'
         <div id="medium_blue" class="medium_blue_container"></div>
         <div id="dark_blue" class="dark_blue_container"></div>
       </div>
+    </section>
+    <section id="my_website_color" class="my_website_color w-100">
+      <MyWebsiteColor />
     </section>
   </main>
 </template>
