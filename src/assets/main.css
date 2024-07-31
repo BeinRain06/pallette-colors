@@ -19,6 +19,8 @@
   --box-color-max-width: calc(
     (var(--total-size-available) - var(--gap-total-width)) / var(--max-number-box)
   );
+
+  --background-image-upper-lower-rocket: none;
 }
 
 /* font-family */
@@ -72,7 +74,7 @@
 @media (min-width: 160px) {
   body {
     background-color: #f4f4f4;
-    /* color:#8fbff7; */
+    /*  color: #9e9e9e; */
   }
 
   #app {

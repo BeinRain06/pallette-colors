@@ -1,4 +1,4 @@
-<script setup></script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="website_container w-100 py-4 px-2 flex flex-col">

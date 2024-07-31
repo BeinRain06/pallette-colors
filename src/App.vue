@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import CardColors from './components/CardColors.vue'
 import MyWebsiteColor from './components/MyWebsiteColor.vue'
+import PersonalizedGradient from './components/PersonalizedGradient.vue'
 </script>
 
 <template>
@@ -124,6 +125,9 @@ import MyWebsiteColor from './components/MyWebsiteColor.vue'
     </section>
     <section id="my_website_color" class="my_website_color w-100">
       <MyWebsiteColor />
+    </section>
+    <section id="personalized_gradient" class="personalized_gradient w-100">
+      <PersonalizedGradient />
     </section>
   </main>
 </template>
