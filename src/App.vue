@@ -4,6 +4,7 @@ import CardColors from './components/CardColors.vue'
 import MyWebsiteColor from './components/MyWebsiteColor.vue'
 import PersonalizedGradient from './components/PersonalizedGradient.vue'
 import MindColors from './components/MindColors.vue'
+import SeekInspiration from './components/SeekInspiration.vue'
 </script>
 
 <template>
@@ -130,8 +131,11 @@ import MindColors from './components/MindColors.vue'
     <section id="personalized_gradient" class="personalized_gradient w-100">
       <PersonalizedGradient />
     </section>
-    <section id="mind_colors" class="mind_colors">
+    <section id="mind_colors" class="mind_colors w-100">
       <MindColors />
+    </section>
+    <section id="seek_inspiration" class="seek_inspiration w-100">
+      <SeekInspiration />
     </section>
   </main>
 </template>

@@ -2,7 +2,7 @@
 <template>
   <div class="mind_colors_container w-100">
     <div class="title_mind_wrap">
-      <h3 class="title_gradient_wrap karla-600 p-2">Mind Colors Trial</h3>
+      <h3 class="title_mind karla-600 p-2">Mind Colors Trial</h3>
     </div>
     <div class="mind_pattern_wrapper w-100 my-2">
       <div class="mind_pattern_content">
@@ -57,7 +57,7 @@
   .title_mind_wrap {
     height: 140px;
     margin-top: 4rem;
-    font-size: calc(20px + 0.1vw);
+    font-size: calc(26px + 0.15vw);
     display: flex;
     justify-content: center;
   }
