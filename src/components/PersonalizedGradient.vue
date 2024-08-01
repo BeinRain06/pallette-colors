@@ -1,15 +1,219 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="gradient_container w-100 m-2">
+  <div class="gradient_container w-100 my-2 sm:m-2">
     <div class="title_gradient_wrap w-100 my-2 md:w-2/5">
       <h3 class="title_gradient karla-600 p-2">Personalized Gradient</h3>
     </div>
-    <div class="gradient_ct w-100 p-2 my-2">
+    <div class="gradient_ct w-100 py-2 sm:p-2 my-2">
       <div class="inline-flex">
         <h3 class="title_gradient_list inter-300">Green To Blue</h3>
       </div>
       <ul class="gradient_list">
+        <li class="gradient_box w-100 h-100 p-2">
+          <div class="gradient_space_color">
+            <div id="rocket_gradient" class="rocket_gradient_color">
+              <div id="launch_upper_rocket" class="upper_rocket">
+                <div class="upper_rocket_ct"></div>
+              </div>
+              <div
+                id="launch_base_rocket"
+                class="lower_rocket"
+                style="
+                  background-image: linear-gradient(
+                    to left bottom,
+                    #053705,
+                    #005d37,
+                    #00866d,
+                    #00b0aa,
+                    #12daeb
+                  );
+                "
+              >
+                <div class="lower_rocket_ct"></div>
+              </div>
+            </div>
+            <div id="aquarium_gradient" class="aquarium_gradient_color">
+              <div class="aquarium_gradient_ct"></div>
+            </div>
+          </div>
+          <div class="gradient_toggle_wrapper">
+            <label for="gradient_effect" class="toggle_gradient">
+              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
+              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
+            </label>
+          </div>
+        </li>
+        <li class="gradient_box w-100 h-100 p-2">
+          <div class="gradient_space_color">
+            <div id="rocket_gradient" class="rocket_gradient_color">
+              <div id="launch_upper_rocket" class="upper_rocket">
+                <div class="upper_rocket_ct"></div>
+              </div>
+              <div
+                id="launch_base_rocket"
+                class="lower_rocket"
+                style="
+                  background-image: linear-gradient(
+                    to left bottom,
+                    #053705,
+                    #005d37,
+                    #00866d,
+                    #00b0aa,
+                    #12daeb
+                  );
+                "
+              >
+                <div class="lower_rocket_ct"></div>
+              </div>
+            </div>
+            <div id="aquarium_gradient" class="aquarium_gradient_color">
+              <div class="aquarium_gradient_ct"></div>
+            </div>
+          </div>
+          <div class="gradient_toggle_wrapper">
+            <label for="gradient_effect" class="toggle_gradient">
+              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
+              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
+            </label>
+          </div>
+        </li>
+        <li class="gradient_box w-100 h-100 p-2">
+          <div class="gradient_space_color">
+            <div id="rocket_gradient" class="rocket_gradient_color">
+              <div id="launch_upper_rocket" class="upper_rocket">
+                <div class="upper_rocket_ct"></div>
+              </div>
+              <div
+                id="launch_base_rocket"
+                class="lower_rocket"
+                style="
+                  background-image: linear-gradient(
+                    to left bottom,
+                    #053705,
+                    #005d37,
+                    #00866d,
+                    #00b0aa,
+                    #12daeb
+                  );
+                "
+              >
+                <div class="lower_rocket_ct"></div>
+              </div>
+            </div>
+            <div id="aquarium_gradient" class="aquarium_gradient_color">
+              <div class="aquarium_gradient_ct"></div>
+            </div>
+          </div>
+          <div class="gradient_toggle_wrapper">
+            <label for="gradient_effect" class="toggle_gradient">
+              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
+              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
+            </label>
+          </div>
+        </li>
+        <li class="gradient_box w-100 h-100 p-2">
+          <div class="gradient_space_color">
+            <div id="rocket_gradient" class="rocket_gradient_color">
+              <div id="launch_upper_rocket" class="upper_rocket">
+                <div class="upper_rocket_ct"></div>
+              </div>
+              <div
+                id="launch_base_rocket"
+                class="lower_rocket"
+                style="
+                  background-image: linear-gradient(
+                    to left bottom,
+                    #053705,
+                    #005d37,
+                    #00866d,
+                    #00b0aa,
+                    #12daeb
+                  );
+                "
+              >
+                <div class="lower_rocket_ct"></div>
+              </div>
+            </div>
+            <div id="aquarium_gradient" class="aquarium_gradient_color">
+              <div class="aquarium_gradient_ct"></div>
+            </div>
+          </div>
+          <div class="gradient_toggle_wrapper">
+            <label for="gradient_effect" class="toggle_gradient">
+              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
+              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
+            </label>
+          </div>
+        </li>
+        <li class="gradient_box w-100 h-100 p-2">
+          <div class="gradient_space_color">
+            <div id="rocket_gradient" class="rocket_gradient_color">
+              <div id="launch_upper_rocket" class="upper_rocket">
+                <div class="upper_rocket_ct"></div>
+              </div>
+              <div
+                id="launch_base_rocket"
+                class="lower_rocket"
+                style="
+                  background-image: linear-gradient(
+                    to left bottom,
+                    #053705,
+                    #005d37,
+                    #00866d,
+                    #00b0aa,
+                    #12daeb
+                  );
+                "
+              >
+                <div class="lower_rocket_ct"></div>
+              </div>
+            </div>
+            <div id="aquarium_gradient" class="aquarium_gradient_color">
+              <div class="aquarium_gradient_ct"></div>
+            </div>
+          </div>
+          <div class="gradient_toggle_wrapper">
+            <label for="gradient_effect" class="toggle_gradient">
+              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
+              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
+            </label>
+          </div>
+        </li>
+        <li class="gradient_box w-100 h-100 p-2">
+          <div class="gradient_space_color">
+            <div id="rocket_gradient" class="rocket_gradient_color">
+              <div id="launch_upper_rocket" class="upper_rocket">
+                <div class="upper_rocket_ct"></div>
+              </div>
+              <div
+                id="launch_base_rocket"
+                class="lower_rocket"
+                style="
+                  background-image: linear-gradient(
+                    to left bottom,
+                    #053705,
+                    #005d37,
+                    #00866d,
+                    #00b0aa,
+                    #12daeb
+                  );
+                "
+              >
+                <div class="lower_rocket_ct"></div>
+              </div>
+            </div>
+            <div id="aquarium_gradient" class="aquarium_gradient_color">
+              <div class="aquarium_gradient_ct"></div>
+            </div>
+          </div>
+          <div class="gradient_toggle_wrapper">
+            <label for="gradient_effect" class="toggle_gradient">
+              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
+              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
+            </label>
+          </div>
+        </li>
         <li class="gradient_box w-100 h-100 p-2">
           <div class="gradient_space_color">
             <div id="rocket_gradient" class="rocket_gradient_color">
@@ -65,7 +269,7 @@
   font-variation-settings: 'slnt' 0;
 }
 
-@media (min-width: 260px) {
+@media (min-width: 210px) {
   .title_gradient_wrap {
     max-width: 580px;
     font-size: calc(20px + 0.1vw);
@@ -87,16 +291,13 @@
   }
 
   .gradient_list {
-    width: 90%;
-    padding: 0.5rem 2rem;
-    margin: 1rem 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    margin: 0.5rem auto;
     display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(max(var(--box-color-min-width), var(--box-color-max-width)), 1fr)
-    );
-    grid-auto-rows: 130px;
-    column-gap: var(--gap-layout);
+    grid-template-columns: repeat(auto, 1fr);
+    grid-auto-rows: 110px;
+    column-gap: 10px;
     row-gap: calc(var(--gap-layout) + 10px);
   }
 
@@ -253,6 +454,36 @@
   .gradient_effect:checked ~ .toggle_fulfilled::before {
     transform: translateX(0);
     background-color: #e7803b;
+  }
+}
+
+@media (min-width: 330px) {
+  .gradient_list {
+    padding: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 130px;
+  }
+}
+
+@media (min-width: 460px) {
+  .gradient_list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
+  .gradient_list {
+    width: 90%;
+    padding: 0.5rem 2rem;
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(max(var(--box-color-min-width), var(--box-color-max-width)), 1fr)
+    );
+    grid-auto-rows: 130px;
+    column-gap: var(--gap-layout);
+    row-gap: calc(var(--gap-layout) + 10px);
   }
 }
 </style>

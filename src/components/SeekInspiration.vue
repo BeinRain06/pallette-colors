@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
-  <div class="inspiring_wrapper mt-12 py-2">
-    <div class="title_inspiring_wrap my-4">
+  <div class="inspiring_wrapper mt-10 py-2">
+    <div class="title_inspiring_wrap my-2 sm:my-4">
       <h3 class="title_inspiring karla-600 p-2">Seek InspiraTion</h3>
     </div>
     <div class="inspiring_container w-100">
@@ -46,16 +46,16 @@
   font-style: normal;
 }
 
-@media (min-width: 260px) {
+@media (min-width: 210px) {
   .title_inspiring_wrap {
-    font-size: calc(28px + 0.15vw);
+    font-size: calc(26px + 0.15vw);
     display: flex;
     justify-content: center;
   }
 
   .inspiring_list {
     padding-left: 1rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0 1rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -78,6 +78,20 @@
 
   .inspiring_item .inspiring_element {
     width: 80%;
+    font-size: calc(13px + 0.1vw);
+  }
+}
+
+@media (min-width: 620px) {
+  .title_inspiring_wrap {
+    font-size: calc(28px + 0.15vw);
+  }
+
+  .inspiring_list {
+    margin: 1rem 0;
+  }
+
+  .inspiring_item .inspiring_element {
     font-size: calc(16px + 0.15vw);
   }
 }

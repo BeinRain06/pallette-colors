@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="website_container w-100 py-4 px-2 flex flex-col">
+  <div class="website_container w-100 py-2 sm:py-4 sm:px-2 flex flex-col">
     <div class="title_melting_wrap w-100 my-2 md:w-2/5">
       <h3 class="title_melting karla-600 p-2">My Website Melting Colors</h3>
     </div>
@@ -11,7 +11,7 @@
         <h2 class="title_app_concern mx-2">Blog-app-tech</h2>
       </div>
       <div class="web_app_theory">
-        <div class="app_preliminary_side w-100 lg:w-1/2 h-100 flex gap-2">
+        <div class="app_preliminary_side">
           <div class="picture_app_wrapper">
             <div class="picture_app" data-index="0"></div>
             <div class="picture_app" data-index="1"></div>
@@ -22,7 +22,7 @@
               <div class="picture_bullet" data-index="2"></div>
             </div>
           </div>
-          <div class="color_cementation min-w-min w-3/5 h-100 flex flex-col bg-pink-400">
+          <div class="color_cementation bg-pink-400">
             <div class="color_background_wrap w-100 my-2">
               <span class="title_cementation edu-au-vic-wa-nt-hand-530">Background Color</span>
               <ul class="color_background w-100 py-1 px-2 flex justify-center">
@@ -44,8 +44,8 @@
             </div>
           </div>
         </div>
-        <div class="app_pattern_side w-100 lg:w-1/2 h-100 flex gap-2">
-          <div class="color_mood_wrap w-1/2 bg-purple-200">
+        <div class="app_pattern_side">
+          <div class="color_mood_wrap w-100 sm:w-1/2 h-44 sm:h-auto bg-purple-200">
             <div class="pattern_ct">
               <h3 class="title_pattern_ct inter-400">Colors Mood</h3>
               <ul class="pattern_list w-9/12 flex flex-col justify-center items-center mx-auto">
@@ -55,7 +55,7 @@
               </ul>
             </div>
           </div>
-          <div class="color_story_wrap w-1/2 bg-blue-200">
+          <div class="color_story_wrap w-100 sm:w-1/2 h-44 sm:h-auto bg-blue-200">
             <div class="pattern_ct">
               <h3 class="title_pattern_ct inter-400">Story</h3>
               <ul class="pattern_list w-9/12 flex flex-col justify-center items-center mx-auto">
@@ -108,7 +108,7 @@
   font-style: normal;
 }
 
-@media (min-width: 260px) {
+@media (min-width: 210px) {
   .title_melting_wrap {
     max-width: 580px;
     font-size: calc(20px + 0.1vw);
@@ -126,23 +126,34 @@
 
   .web_app_theory {
     width: 100%;
-    height: 320px;
-    padding: 1rem;
+    height: 850px;
+    padding: 1rem 0.25rem;
+    margin-top: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1rem;
+  }
+
+  .app_preliminary_side {
+    width: 100%;
+    height: 440px;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .picture_app_wrapper {
     position: relative;
-    width: 40%;
-    height: 100%;
+    width: 100%;
+    height: 42%;
     gap: 0.1rem;
     margin: 0;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
     overflow-x: hidden;
+    border-radius: 5px;
     transition: all 650ms ease-in-out;
   }
 
@@ -195,6 +206,15 @@
     background-color: yellow;
   }
 
+  .color_cementation {
+    width: 100%;
+    min-width: min-content;
+    height: 58%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .title_cementation {
     width: 100%;
     color: #333;
@@ -234,6 +254,13 @@
     border: 2px dotted yellow;
   }
 
+  .app_pattern_side {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
   .title_pattern_ct {
     width: 100%;
     padding: 0.5rem;
@@ -248,6 +275,75 @@
     margin: 0.5rem 0;
     list-style: square;
     font-size: calc(12px + 0.25vw);
+  }
+}
+
+@media (min-width: 460px) {
+}
+
+@media (min-width: 640px) {
+  .web_app_theory {
+    height: 500px;
+    padding: 1rem;
+  }
+
+  .app_preliminary_side {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+    gap: 0.5rem;
+  }
+
+  .picture_app_wrapper {
+    width: 50%;
+    height: 100%;
+  }
+
+  .color_cementation {
+    width: 50%;
+    height: 100%;
+  }
+
+  .app_pattern_side {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 760px) {
+  .picture_app_wrapper {
+    width: 45%;
+  }
+
+  .color_cementation {
+    width: 55%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .web_app_theory {
+    height: 320px;
+    margin-top: 0;
+    flex-direction: row;
+  }
+
+  .picture_app_wrapper {
+    width: 40%;
+    border-radius: 0;
+  }
+
+  .color_cementation {
+    width: 60%;
+    border-radius: 0;
+  }
+
+  .app_pattern_side {
+    height: auto;
   }
 }
 </style>

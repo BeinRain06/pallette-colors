@@ -8,7 +8,7 @@
 
 :root {
   --gap-layout: 30px;
-  --box-color-min-width: 180px;
+  --box-color-min-width: 160px;
   --max-number-box: 5;
   --total-size-available: 100%;
 
@@ -74,7 +74,8 @@
 @media (min-width: 160px) {
   body {
     background-color: #f4f4f4;
-    /*  color: #9e9e9e; */
+    overflow-x: hidden;
+    /* color: #333333dc; */
   }
 
   #app {

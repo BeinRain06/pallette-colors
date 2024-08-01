@@ -37,6 +37,25 @@
                     <td class="element_color">color6</td>
                   </tr>
                 </tbody>
+                <tbody class="table_content">
+                  <tr>
+                    <th
+                      class="title_element_color w-48 font-medium border border-solid border-black"
+                    >
+                      pallette-color_2
+                    </th>
+                  </tr>
+                  <tr class="table_elements">
+                    <td class="element_color">color1</td>
+                    <td class="element_color">color2</td>
+                    <td class="element_color">color3</td>
+                  </tr>
+                  <tr class="table_elements">
+                    <td class="element_color">color4</td>
+                    <td class="element_color">color5</td>
+                    <td class="element_color">color6</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
@@ -53,16 +72,17 @@
   font-style: normal;
 }
 
-@media (min-width: 260px) {
+@media (min-width: 210px) {
   .title_mind_wrap {
-    height: 140px;
-    margin-top: 4rem;
-    font-size: calc(26px + 0.15vw);
+    height: 120px;
+    margin-top: 2rem;
+    font-size: calc(25px + 0.15vw);
     display: flex;
     justify-content: center;
   }
 
-  .title_pattern {
+  .title_pattern_wrap {
+    padding-top: 0.25rem;
     font-size: calc(16px + 0.15vw);
   }
 
@@ -71,7 +91,7 @@
   }
 
   .mind_pattern_content {
-    width: 80%;
+    width: 94%;
     padding: 0.5rem 0;
     margin: 0.5rem 0 1.5rem;
     height: auto;
@@ -84,27 +104,30 @@
   .mind_pattern_content .header_pattern_container {
     position: relative;
     width: 100%;
-    height: 36px;
+    height: 26px;
+    background-color: #c1d3ab;
     border: 1px solid black;
     border-top: none;
   }
 
   .header_pattern_container .left_square_pattern {
     position: absolute;
-    top: -17px;
+    top: -14px;
     left: -1px;
     width: 45px;
-    height: 17px;
+    height: 14px;
+    background-color: #a6bd89;
     border: 1px solid black;
     border-bottom: none;
   }
 
   .header_pattern_container .right_square_pattern {
     position: absolute;
-    top: -36px;
+    top: -25px;
     right: -1px;
     width: 80px;
-    height: 36px;
+    height: 25px;
+    background-color: #a6bd89;
     border: 1px solid black;
     border-top-right-radius: 12px;
     border-bottom: none;
@@ -116,7 +139,7 @@
     left: 42px;
     width: calc(100% - 120px);
     height: 1px;
-    background-color: red;
+    background-color: #383636;
   }
 
   .base_pattern_content {
@@ -127,17 +150,97 @@
 
   .table_content {
     width: 100%;
+    height: 116px;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15rem;
+  }
+
+  .table_content:nth-child(odd) .title_element_color {
+    width: 8rem;
+    color: #fff;
+    background-color: #333;
+  }
+
+  .table_content:nth-child(even) .title_element_color {
+    width: 8rem;
+    color: #fff;
+    background-color: #333333dc;
+  }
+
+  .table_elements .element_color {
+    width: 29vw;
+    padding-left: 0.75rem;
     height: 35px;
+    font-size: calc(12px + 0.1vw);
+    border: 1px solid black;
+  }
+}
+
+@media (min-width: 420px) {
+  .mind_pattern_content {
+    width: 90%;
+  }
+
+  .mind_pattern_content .header_pattern_container {
+    height: 36px;
+  }
+
+  .header_pattern_container .left_square_pattern {
+    position: absolute;
+    top: -17px;
+    height: 17px;
+  }
+
+  .header_pattern_container .right_square_pattern {
+    position: absolute;
+    top: -36px;
+    right: -1px;
+    height: 36px;
+  }
+  .table_elements .element_color {
+    padding-left: 0.75rem;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 980px) {
+  .title_mind_wrap {
+    height: 140px;
+    margin-top: 4rem;
+    font-size: calc(26px + 0.15vw);
+  }
+
+  .mind_pattern_content {
+    width: 80%;
+  }
+
+  .table_content {
+    height: 35px;
+    margin: 0;
+    flex-direction: row;
+    gap: 0.1rem;
+  }
+
+  .table_content:nth-child(odd) .title_element_color {
+    width: 9rem;
     display: flex;
     justify-content: center;
-    gap: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  .table_content:nth-child(even) .title_element_color {
+    width: 9rem;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .table_elements .element_color {
     width: 10rem;
-    padding-left: 0.75rem;
     height: 35px;
-    border: 1px solid black;
   }
 }
 </style>

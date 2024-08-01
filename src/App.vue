@@ -211,7 +211,7 @@ import SeekInspiration from './components/SeekInspiration.vue'
   color: #0b5194;
 }
 
-@media (min-width: 260px) {
+@media (min-width: 210px) {
   .nav_pallette {
     width: 100vw;
     height: 60px;

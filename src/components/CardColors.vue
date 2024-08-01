@@ -82,19 +82,23 @@ function myBgColor(item) {
 </template>
 
 <style scoped>
-@media (min-width: 260px) {
+@media (min-width: 210px) {
   .card_color_content {
     width: 100%;
     padding: 0.5rem;
+    margin: 0 auto;
     position: relative;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
   }
   .card_color_content .color_range_contrast {
-    width: 15%;
-    height: 140px;
+    width: 8rem;
+    height: 120px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
   }
 
   .color_range_contrast .box_range_label {
@@ -106,11 +110,11 @@ function myBgColor(item) {
   }
 
   .card_color_content .range_colors_wrap {
-    width: 80%;
+    width: 90vw;
   }
   .card_color_content .range_colors {
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0.5rem;
     display: grid;
     grid-template-columns: repeat(
       auto-fill,
@@ -121,6 +125,7 @@ function myBgColor(item) {
     column-gap: var(--gap-layout);
     row-gap: calc(var(--gap-layout) + 10px);
   }
+
   .range_colors .association_color {
     width: 100%;
     display: flex;
@@ -138,6 +143,37 @@ function myBgColor(item) {
     letter-spacing: 1.5px;
     padding: 3px 0;
     @apply leading-tight text-sm text-center;
+  }
+}
+
+@media (min-width: 460px) {
+  .card_color_content {
+    width: 100%;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .card_color_content .color_range_contrast {
+    height: 140px;
+  }
+
+  .card_color_content .range_colors_wrap {
+    width: 80%;
+  }
+
+  .card_color_content .range_colors {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .card_color_content .color_range_contrast {
+    width: 15%;
+    height: 140px;
+  }
+
+  .card_color_content .range_colors {
+    padding: 1rem 1.5rem;
   }
 }
 </style>
