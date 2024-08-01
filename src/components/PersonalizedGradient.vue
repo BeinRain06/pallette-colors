@@ -3,11 +3,11 @@
 <template>
   <div class="gradient_container w-100 m-2">
     <div class="title_gradient_wrap w-100 my-2 md:w-2/5">
-      <h2 class="title_gradient_container karla-600 p-2">Personalized Gradient</h2>
+      <h3 class="title_gradient karla-600 p-2">Personalized Gradient</h3>
     </div>
     <div class="gradient_ct w-100 p-2 my-2">
       <div class="inline-flex">
-        <h3 class="title_gradient inter-300">Green To Blue</h3>
+        <h3 class="title_gradient_list inter-300">Green To Blue</h3>
       </div>
       <ul class="gradient_list">
         <li class="gradient_box w-100 h-100 p-2">
@@ -66,18 +66,20 @@
 }
 
 @media (min-width: 260px) {
-  .title_gradient_container {
+  .title_gradient_wrap {
+    max-width: 580px;
     font-size: calc(20px + 0.1vw);
     display: flex;
     justify-content: flex-start;
   }
+
   .gradient_ct {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  .title_gradient {
+  .title_gradient_list {
     padding: 0.5rem 0;
     font-size: calc(16px + 0.1vw);
     border-bottom-left-radius: 5px;

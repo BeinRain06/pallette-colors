@@ -3,6 +3,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import CardColors from './components/CardColors.vue'
 import MyWebsiteColor from './components/MyWebsiteColor.vue'
 import PersonalizedGradient from './components/PersonalizedGradient.vue'
+import MindColors from './components/MindColors.vue'
 </script>
 
 <template>
@@ -128,6 +129,9 @@ import PersonalizedGradient from './components/PersonalizedGradient.vue'
     </section>
     <section id="personalized_gradient" class="personalized_gradient w-100">
       <PersonalizedGradient />
+    </section>
+    <section id="mind_colors" class="mind_colors">
+      <MindColors />
     </section>
   </main>
 </template>
