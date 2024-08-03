@@ -129,7 +129,7 @@ import SeekInspiration from './components/SeekInspiration.vue'
       <MyWebsiteColor />
     </section>
     <section id="personalized_gradient" class="personalized_gradient w-100">
-      <PersonalizedGradient />
+      <PersonalizedGradient indexColor="0" />
     </section>
     <section id="mind_colors" class="mind_colors w-100">
       <MindColors />

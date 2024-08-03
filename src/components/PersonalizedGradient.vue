@@ -1,4 +1,93 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, reactive, computed } from 'vue'
+import { gradientStore } from '../stores/personalized-gradient'
+const props = defineProps<{ indexColor: string }>()
+
+let newIndex = reactive({ count: 1 })
+
+let status = reactive({ inState: false })
+
+const itemRefs = ref([])
+const itemRockets = ref([])
+const itemAquariums = ref([])
+const itemsArrValue = ref([])
+
+let arrGradTitle = computed(() => {
+  const useGradientStore = gradientStore()
+
+  const gradientsArr = useGradientStore.gradientColors[props.indexColor]
+
+  return gradientsArr.title
+})
+
+let arrGradColor = computed(() => {
+  const useGradientStore = gradientStore()
+
+  const gradientsArr = useGradientStore.gradientColors[props.indexColor]
+
+  console.log(gradientsArr.backgroundImage)
+
+  return gradientsArr.backgroundImage
+})
+
+function bgGradient(item) {
+  console.log('item: ', item)
+  return { backgroundImage: item }
+}
+
+function handleToggling(e) {
+  const itemsInput = Array.from(itemRefs.value)
+  const itemsRoc = Array.from(itemRockets.value)
+  const itemsAqua = Array.from(itemAquariums.value)
+
+  console.log('aqua:', itemsAqua)
+
+  const i = parseInt(e.currentTarget.getAttribute('data-index'))
+
+  itemsInput.forEach((elt, j) => {
+    console.log(elt)
+    if (i === j) {
+      console.log(`itemsInput[${i}]:`, itemsInput[i])
+      let newStatus = itemsInput[i].checked ? false : true
+
+      itemsInput[i].checked = newStatus
+
+      if (newStatus) {
+        itemsRoc[i].classList.add('active_gradient')
+        itemsAqua[i].classList.add('active_gradient')
+      } else {
+        itemsRoc[i].classList.remove('active_gradient')
+        itemsAqua[i].classList.remove('active_gradient')
+      }
+    } else {
+      itemsInput[j].checked = false
+    }
+  })
+
+  const useGradientStore = gradientStore()
+
+  const gradientsItem = useGradientStore.gradientColors[props.indexColor]
+  const gradientsArr = gradientsItem.backgroundImage
+}
+
+function handleCopy(e) {
+  console.log(e.target)
+  const item = e.target.getAttribute('data-item')
+  const i = parseInt(e.target.getAttribute('data-index'))
+
+  const itemsValue = Array.from(itemsArrValue.value)
+
+  console.log(itemsValue[i].nextElementSibling)
+
+  itemsValue[i].nextElementSibling.classList.add('active_btn')
+  setTimeout(() => {
+    itemsValue[i].nextElementSibling.classList.remove('active_btn')
+  }, 700)
+
+  itemsValue[i].select()
+  navigator.clipboard.writeText(itemsValue[i].value)
+}
+</script>
 
 <template>
   <div class="gradient_container w-100 my-2 sm:m-2">
@@ -7,243 +96,51 @@
     </div>
     <div class="gradient_ct w-100 py-2 sm:p-2 my-2">
       <div class="inline-flex">
-        <h3 class="title_gradient_list inter-300">Green To Blue</h3>
+        <h3 class="title_gradient_list inter-300">{{ arrGradTitle }}</h3>
       </div>
       <ul class="gradient_list">
-        <li class="gradient_box w-100 h-100 p-2">
+        <li class="gradient_box w-100 h-100 p-2" v-for="(item, i) in arrGradColor">
           <div class="gradient_space_color">
-            <div id="rocket_gradient" class="rocket_gradient_color">
+            <div id="rocket_gradient" class="rocket_gradient_color" ref="itemRockets">
               <div id="launch_upper_rocket" class="upper_rocket">
-                <div class="upper_rocket_ct"></div>
+                <div class="upper_rocket_ct" :style="bgGradient(item)"></div>
               </div>
-              <div
-                id="launch_base_rocket"
-                class="lower_rocket"
-                style="
-                  background-image: linear-gradient(
-                    to left bottom,
-                    #053705,
-                    #005d37,
-                    #00866d,
-                    #00b0aa,
-                    #12daeb
-                  );
-                "
-              >
-                <div class="lower_rocket_ct"></div>
+              <div id="launch_base_rocket" class="lower_rocket">
+                <div class="lower_rocket_ct" :style="bgGradient(item)"></div>
               </div>
             </div>
-            <div id="aquarium_gradient" class="aquarium_gradient_color">
-              <div class="aquarium_gradient_ct"></div>
+            <div id="aquarium_gradient" class="aquarium_gradient_color" ref="itemAquariums">
+              <div class="aquarium_gradient_ct" :style="bgGradient(item)">
+                <div class="relative top-0 h-100">
+                  {{ item }}
+                  <input
+                    type="text"
+                    :value="item"
+                    id="myInput"
+                    class="input_clipboard"
+                    :data-index="i"
+                    ref="itemsArrValue"
+                  />
+                  <button
+                    class="aquarium_copy_link hover:bg-gray-300 hover:text-blue-800"
+                    :data-item="item"
+                    :data-index="i"
+                    @click.prevent="handleCopy"
+                  >
+                    copy
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div class="gradient_toggle_wrapper">
-            <label for="gradient_effect" class="toggle_gradient">
-              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
-              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
-            </label>
-          </div>
-        </li>
-        <li class="gradient_box w-100 h-100 p-2">
-          <div class="gradient_space_color">
-            <div id="rocket_gradient" class="rocket_gradient_color">
-              <div id="launch_upper_rocket" class="upper_rocket">
-                <div class="upper_rocket_ct"></div>
-              </div>
-              <div
-                id="launch_base_rocket"
-                class="lower_rocket"
-                style="
-                  background-image: linear-gradient(
-                    to left bottom,
-                    #053705,
-                    #005d37,
-                    #00866d,
-                    #00b0aa,
-                    #12daeb
-                  );
-                "
-              >
-                <div class="lower_rocket_ct"></div>
-              </div>
-            </div>
-            <div id="aquarium_gradient" class="aquarium_gradient_color">
-              <div class="aquarium_gradient_ct"></div>
-            </div>
-          </div>
-          <div class="gradient_toggle_wrapper">
-            <label for="gradient_effect" class="toggle_gradient">
-              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
-              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
-            </label>
-          </div>
-        </li>
-        <li class="gradient_box w-100 h-100 p-2">
-          <div class="gradient_space_color">
-            <div id="rocket_gradient" class="rocket_gradient_color">
-              <div id="launch_upper_rocket" class="upper_rocket">
-                <div class="upper_rocket_ct"></div>
-              </div>
-              <div
-                id="launch_base_rocket"
-                class="lower_rocket"
-                style="
-                  background-image: linear-gradient(
-                    to left bottom,
-                    #053705,
-                    #005d37,
-                    #00866d,
-                    #00b0aa,
-                    #12daeb
-                  );
-                "
-              >
-                <div class="lower_rocket_ct"></div>
-              </div>
-            </div>
-            <div id="aquarium_gradient" class="aquarium_gradient_color">
-              <div class="aquarium_gradient_ct"></div>
-            </div>
-          </div>
-          <div class="gradient_toggle_wrapper">
-            <label for="gradient_effect" class="toggle_gradient">
-              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
-              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
-            </label>
-          </div>
-        </li>
-        <li class="gradient_box w-100 h-100 p-2">
-          <div class="gradient_space_color">
-            <div id="rocket_gradient" class="rocket_gradient_color">
-              <div id="launch_upper_rocket" class="upper_rocket">
-                <div class="upper_rocket_ct"></div>
-              </div>
-              <div
-                id="launch_base_rocket"
-                class="lower_rocket"
-                style="
-                  background-image: linear-gradient(
-                    to left bottom,
-                    #053705,
-                    #005d37,
-                    #00866d,
-                    #00b0aa,
-                    #12daeb
-                  );
-                "
-              >
-                <div class="lower_rocket_ct"></div>
-              </div>
-            </div>
-            <div id="aquarium_gradient" class="aquarium_gradient_color">
-              <div class="aquarium_gradient_ct"></div>
-            </div>
-          </div>
-          <div class="gradient_toggle_wrapper">
-            <label for="gradient_effect" class="toggle_gradient">
-              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
-              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
-            </label>
-          </div>
-        </li>
-        <li class="gradient_box w-100 h-100 p-2">
-          <div class="gradient_space_color">
-            <div id="rocket_gradient" class="rocket_gradient_color">
-              <div id="launch_upper_rocket" class="upper_rocket">
-                <div class="upper_rocket_ct"></div>
-              </div>
-              <div
-                id="launch_base_rocket"
-                class="lower_rocket"
-                style="
-                  background-image: linear-gradient(
-                    to left bottom,
-                    #053705,
-                    #005d37,
-                    #00866d,
-                    #00b0aa,
-                    #12daeb
-                  );
-                "
-              >
-                <div class="lower_rocket_ct"></div>
-              </div>
-            </div>
-            <div id="aquarium_gradient" class="aquarium_gradient_color">
-              <div class="aquarium_gradient_ct"></div>
-            </div>
-          </div>
-          <div class="gradient_toggle_wrapper">
-            <label for="gradient_effect" class="toggle_gradient">
-              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
-              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
-            </label>
-          </div>
-        </li>
-        <li class="gradient_box w-100 h-100 p-2">
-          <div class="gradient_space_color">
-            <div id="rocket_gradient" class="rocket_gradient_color">
-              <div id="launch_upper_rocket" class="upper_rocket">
-                <div class="upper_rocket_ct"></div>
-              </div>
-              <div
-                id="launch_base_rocket"
-                class="lower_rocket"
-                style="
-                  background-image: linear-gradient(
-                    to left bottom,
-                    #053705,
-                    #005d37,
-                    #00866d,
-                    #00b0aa,
-                    #12daeb
-                  );
-                "
-              >
-                <div class="lower_rocket_ct"></div>
-              </div>
-            </div>
-            <div id="aquarium_gradient" class="aquarium_gradient_color">
-              <div class="aquarium_gradient_ct"></div>
-            </div>
-          </div>
-          <div class="gradient_toggle_wrapper">
-            <label for="gradient_effect" class="toggle_gradient">
-              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
-              <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
-            </label>
-          </div>
-        </li>
-        <li class="gradient_box w-100 h-100 p-2">
-          <div class="gradient_space_color">
-            <div id="rocket_gradient" class="rocket_gradient_color">
-              <div id="launch_upper_rocket" class="upper_rocket">
-                <div class="upper_rocket_ct"></div>
-              </div>
-              <div
-                id="launch_base_rocket"
-                class="lower_rocket"
-                style="
-                  background-image: linear-gradient(
-                    to left bottom,
-                    #053705,
-                    #005d37,
-                    #00866d,
-                    #00b0aa,
-                    #12daeb
-                  );
-                "
-              >
-                <div class="lower_rocket_ct"></div>
-              </div>
-            </div>
-            <div id="aquarium_gradient" class="aquarium_gradient_color">
-              <div class="aquarium_gradient_ct"></div>
-            </div>
-          </div>
-          <div class="gradient_toggle_wrapper">
-            <label for="gradient_effect" class="toggle_gradient">
-              <input type="checkbox" id="gradient_effect" class="gradient_effect" />
+            <label
+              for="gradient_effect"
+              class="toggle_gradient"
+              :data-index="i"
+              @click.prevent="handleToggling"
+            >
+              <input type="checkbox" id="gradient_effect" class="gradient_effect" ref="itemRefs" />
               <div class="toggle_fulfilled"><p class="toggle_fulltext">sleep</p></div>
             </label>
           </div>
@@ -275,6 +172,32 @@
     font-size: calc(20px + 0.1vw);
     display: flex;
     justify-content: flex-start;
+  }
+
+  .input_clipboard {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    visibility: hidden;
+  }
+
+  .aquarium_copy_link {
+    position: absolute;
+    cursor: pointer;
+    width: 2rem;
+    bottom: -11px;
+    right: 3px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    opacity: 1;
+    transform: scale(0.98);
+    transition:
+      background-color 350ms ease,
+      color 370ms ease-in-out 280ms;
+  }
+
+  .aquarium_copy_link.active_btn {
+    animation: anim-button 650ms ease-in-out backwards;
   }
 
   .gradient_ct {
@@ -320,6 +243,7 @@
   }
 
   .rocket_gradient_color .upper_rocket {
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: transparent;
@@ -329,39 +253,39 @@
     border-bottom: none;
   }
 
-  .upper_rocket .upper_rocket_ct {
+  .rocket_gradient_color .upper_rocket_ct {
     position: absolute;
-    top: 0;
+    top: 22%;
     left: 0;
     width: 10%;
-    height: 100%;
-    background-image: none;
+    height: 80%;
+    background-blend-mode: soft-light;
     transition: all 350ms ease-in-out;
   }
 
   .rocket_gradient_color .lower_rocket {
+    position: relative;
     width: 100%;
     height: 100%;
     border: 1px solid #9e9e9e;
     border-top: none;
   }
 
-  .lower_rocket .lower_rocket_ct {
+  .rocket_gradient_color .lower_rocket_ct {
     position: absolute;
     top: 0;
     left: 0;
-    width: 10%;
+    width: 100%;
     height: 100%;
-    background-image: none;
     transition: all 350ms ease-in-out;
   }
 
-  .rocket_gradient_color.active_gradient .upper_rocket_ct,
+  .rocket_gradient_color.active_gradient .upper_rocket_ct {
+    animation: anim-rocket-upper 650ms ease-in-out forwards;
+  }
+
   .rocket_gradient_color.active_gradient .lower_rocket_ct {
-    width: 100%;
-    height: 100%;
-    background-image: var(--background-image-upper-lower-rocket);
-    transition: all 650ms ease 1s;
+    animation: anim-rocket-lower 650ms ease-in-out forwards;
   }
 
   .aquarium_gradient_color {
@@ -377,20 +301,19 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: none;
+    color: #333;
+    font-size: calc(10px + 0.1vw);
+    border-radius: 5px;
     transform: translateY(100%);
-    transition: all 650ms ease-in-out 1s;
+    display: grid;
+    place-items: center;
+    text-align: center;
     opacity: 0;
     visibility: hidden;
   }
 
-  .rocket_gradient_color.active_gradient .aquarium_gradient_ct {
-    top: 0;
-    background-image: var(--background-image-upper-lower-rocket);
-    transition: all 450ms ease;
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+  .aquarium_gradient_color.active_gradient .aquarium_gradient_ct {
+    animation: anim-aquarium 950ms ease-in-out 1s forwards;
   }
 
   .gradient_toggle_wrapper {
@@ -484,6 +407,57 @@
     grid-auto-rows: 130px;
     column-gap: var(--gap-layout);
     row-gap: calc(var(--gap-layout) + 10px);
+  }
+}
+
+@keyframes anim-rocket-lower {
+  0% {
+    width: 12%;
+    height: 100%;
+    visibility: hidden;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-rocket-upper {
+  0% {
+    width: 12%;
+    height: 80%;
+    visibility: hidden;
+  }
+  100% {
+    width: 100%;
+    height: 80%;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-aquarium {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    color: #fdfdfd;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes anim-button {
+  0% {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(0.9);
   }
 }
 </style>
