@@ -185,8 +185,9 @@ function handleCopy(e) {
     position: absolute;
     cursor: pointer;
     width: 2rem;
-    bottom: -11px;
-    right: 3px;
+    margin: 5px 0;
+    top: -24px;
+    left: 0;
     border-radius: 3px;
     border: 1px solid #fff;
     opacity: 1;
@@ -257,10 +258,11 @@ function handleCopy(e) {
     position: absolute;
     top: 22%;
     left: 0;
-    width: 10%;
-    height: 80%;
+    width: 12%;
+    height: 180%;
     background-blend-mode: soft-light;
-    transition: all 350ms ease-in-out;
+    animation: anim-rocket-upper 650ms ease-in-out forwards;
+    z-index: 3;
   }
 
   .rocket_gradient_color .lower_rocket {
@@ -275,17 +277,16 @@ function handleCopy(e) {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    transition: all 350ms ease-in-out;
+    animation: anim-rocket-lower 600ms ease-in-out 380ms forwards;
+    z-index: 1;
   }
 
   .rocket_gradient_color.active_gradient .upper_rocket_ct {
-    animation: anim-rocket-upper 650ms ease-in-out forwards;
+    animation: anim-rocket-upper-act 650ms ease-in-out forwards;
   }
 
   .rocket_gradient_color.active_gradient .lower_rocket_ct {
-    animation: anim-rocket-lower 650ms ease-in-out forwards;
+    animation: anim-rocket-lower-act 650ms ease-in-out forwards;
   }
 
   .aquarium_gradient_color {
@@ -301,19 +302,25 @@ function handleCopy(e) {
     top: 0;
     width: 100%;
     height: 100%;
-    color: #333;
+    padding-top: 20px;
+    color: #fdfdfd;
     font-size: calc(10px + 0.1vw);
     border-radius: 5px;
-    transform: translateY(100%);
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     text-align: center;
+    transform: translateY(100%);
     opacity: 0;
     visibility: hidden;
+    transition: all 950ms ease-in-out 1s;
   }
 
   .aquarium_gradient_color.active_gradient .aquarium_gradient_ct {
-    animation: anim-aquarium 950ms ease-in-out 1s forwards;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: all 950ms ease-in-out 1s;
   }
 
   .gradient_toggle_wrapper {
@@ -423,20 +430,58 @@ function handleCopy(e) {
   }
 }
 
+@keyframes anim-rocket-lower-act {
+  0% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+  }
+  100% {
+    width: 12%;
+    height: 100%;
+    visibility: hidden;
+  }
+}
+
 @keyframes anim-rocket-upper {
   0% {
+    width: 100%;
+    height: 180%;
+    visibility: visible;
+  }
+  100% {
     width: 12%;
-    height: 80%;
+    height: 180%;
+    visibility: hidden;
+  }
+}
+
+@keyframes anim-rocket-upper-act {
+  0% {
+    width: 12%;
+    height: 180%;
     visibility: hidden;
   }
   100% {
     width: 100%;
-    height: 80%;
+    height: 180%;
     visibility: visible;
   }
 }
 
 @keyframes anim-aquarium {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes anim-aquarium-act {
   0% {
     transform: translateY(100%);
     opacity: 0;
