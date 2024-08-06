@@ -1,10 +1,23 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import CardColors from './components/CardColors.vue'
 import MyWebsiteColor from './components/MyWebsiteColor.vue'
 import PersonalizedGradient from './components/PersonalizedGradient.vue'
 import MindColors from './components/MindColors.vue'
 import SeekInspiration from './components/SeekInspiration.vue'
+
+import { myWebsiteColorStore } from './stores/mywebsite-color'
+
+const arrWebColors = computed(() => {
+  const useMyWebsiteColorStore = myWebsiteColorStore()
+
+  const allProjects = useMyWebsiteColorStore.baseProjects
+
+  const arrProjects = Object.values(allProjects)
+
+  return arrProjects
+})
 </script>
 
 <template>
@@ -126,7 +139,12 @@ import SeekInspiration from './components/SeekInspiration.vue'
       </div>
     </section>
     <section id="my_website_color" class="my_website_color w-100">
-      <MyWebsiteColor />
+      <div class="title_melting_wrap w-100 my-2 md:w-2/5">
+        <h3 class="title_melting karla-600 p-2">My Website Melting Colors</h3>
+      </div>
+      <div class="w-100" v-for="(project, i) in arrWebColors">
+        <MyWebsiteColor :key="project.title" :myproject="project" :indexproject="i" />
+      </div>
     </section>
     <section id="personalized_gradient" class="personalized_gradient w-100">
       <PersonalizedGradient indexColor="0" />
@@ -209,6 +227,20 @@ import SeekInspiration from './components/SeekInspiration.vue'
 
 .title_section_label[data-index='1'] {
   color: #0b5194;
+}
+
+.karla-600 {
+  font-family: 'Karla', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.title_melting_wrap {
+  max-width: 580px;
+  font-size: calc(20px + 0.1vw);
+  display: flex;
+  justify-content: flex-start;
 }
 
 @media (min-width: 210px) {

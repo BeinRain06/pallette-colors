@@ -1,3 +1,7 @@
+import img1 from '../stores/images/Blog-Tech-1.png'
+
+import img2 from '../assets/images/Tds-1.png'
+
 {
   /* <ul class="gradient_list">
   <li class="gradient_item">
