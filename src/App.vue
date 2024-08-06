@@ -134,8 +134,252 @@ const arrWebColors = computed(() => {
         <div id="light_blue" class="light_blue_container">
           <CardColors label="blue-light" />
         </div>
-        <div id="medium_blue" class="medium_blue_container"></div>
-        <div id="dark_blue" class="dark_blue_container"></div>
+        <div id="medium_blue" class="medium_blue_container">
+          <CardColors label="blue-medium" />
+        </div>
+        <div id="dark_blue" class="dark_blue_container">
+          <CardColors label="blue-dark" />
+        </div>
+      </div>
+    </section>
+    <section id="green_color_section" class="p-4 my-4 w-100">
+      <div class="title_section_wrap">
+        <div
+          class="title_section_label w-100 flex justify-center text-2xl md:text-3xl lg:text-4xl"
+          data-index="1"
+        >
+          <h2 class="px-4 py-2 my-2">Green</h2>
+        </div>
+        <div class="stack_underline">
+          <div class="stack_underline"></div>
+        </div>
+        <div class="stack_underline_1">
+          <div class="stack_underline_1"></div>
+        </div>
+        <div class="stack_underline_2">
+          <div class="stack_underline_2"></div>
+        </div>
+      </div>
+      <div class="green_color_wrapper">
+        <div id="light_green" class="light_green_container">
+          <CardColors label="green-light" />
+        </div>
+        <div id="medium_green" class="medium_green_container">
+          <CardColors label="green-medium" />
+        </div>
+        <div id="dark_green" class="dark_green_container">
+          <CardColors label="green-dark" />
+        </div>
+      </div>
+    </section>
+    <section id="purple_color_section" class="p-4 my-4 w-100">
+      <div class="title_section_wrap">
+        <div
+          class="title_section_label w-100 flex justify-center text-2xl md:text-3xl lg:text-4xl"
+          data-index="1"
+        >
+          <h2 class="px-4 py-2 my-2">Purple</h2>
+        </div>
+        <div class="stack_underline">
+          <div class="stack_underline"></div>
+        </div>
+        <div class="stack_underline_1">
+          <div class="stack_underline_1"></div>
+        </div>
+        <div class="stack_underline_2">
+          <div class="stack_underline_2"></div>
+        </div>
+      </div>
+      <div class="purple_color_wrapper">
+        <div id="light_purple" class="light_purple_container">
+          <CardColors label="purple-light" />
+        </div>
+        <div id="medium_purple" class="medium_purple_container">
+          <CardColors label="purple-medium" />
+        </div>
+        <div id="dark_purple" class="dark_purple_container">
+          <CardColors label="purple-dark" />
+        </div>
+      </div>
+    </section>
+    <section id="orange_color_section" class="p-4 my-4 w-100">
+      <div class="title_section_wrap">
+        <div
+          class="title_section_label w-100 flex justify-center text-2xl md:text-3xl lg:text-4xl"
+          data-index="1"
+        >
+          <h2 class="px-4 py-2 my-2">Orange</h2>
+        </div>
+        <div class="stack_underline">
+          <div class="stack_underline"></div>
+        </div>
+        <div class="stack_underline_1">
+          <div class="stack_underline_1"></div>
+        </div>
+        <div class="stack_underline_2">
+          <div class="stack_underline_2"></div>
+        </div>
+      </div>
+      <div class="orange_color_wrapper">
+        <div id="light_orange" class="light_orange_container">
+          <CardColors label="orange-light" />
+        </div>
+        <div id="medium_orange" class="medium_orange_container">
+          <CardColors label="orange-medium" />
+        </div>
+        <div id="dark_orange" class="dark_orange_container">
+          <CardColors label="orange-dark" />
+        </div>
+      </div>
+    </section>
+    <section id="yellow_color_section" class="p-4 my-4 w-100">
+      <div class="title_section_wrap">
+        <div
+          class="title_section_label w-100 flex justify-center text-2xl md:text-3xl lg:text-4xl"
+          data-index="1"
+        >
+          <h2 class="px-4 py-2 my-2">Yellow</h2>
+        </div>
+        <div class="stack_underline">
+          <div class="stack_underline"></div>
+        </div>
+        <div class="stack_underline_1">
+          <div class="stack_underline_1"></div>
+        </div>
+        <div class="stack_underline_2">
+          <div class="stack_underline_2"></div>
+        </div>
+      </div>
+      <div class="yellow_color_wrapper">
+        <div id="light_yellow" class="light_yellow_container">
+          <CardColors label="yellow-light" />
+        </div>
+        <div id="medium_yellow" class="medium_yellow_container">
+          <CardColors label="yellow-medium" />
+        </div>
+        <div id="dark_yellow" class="dark_yellow_container">
+          <CardColors label="yellow-dark" />
+        </div>
+      </div>
+    </section>
+    <section id="pink_color_section" class="p-4 my-4 w-100">
+      <div class="title_section_wrap">
+        <div
+          class="title_section_label w-100 flex justify-center text-2xl md:text-3xl lg:text-4xl"
+          data-index="1"
+        >
+          <h2 class="px-4 py-2 my-2">Pink</h2>
+        </div>
+        <div class="stack_underline">
+          <div class="stack_underline"></div>
+        </div>
+        <div class="stack_underline_1">
+          <div class="stack_underline_1"></div>
+        </div>
+        <div class="stack_underline_2">
+          <div class="stack_underline_2"></div>
+        </div>
+      </div>
+      <div class="pink_color_wrapper">
+        <div id="light_pink" class="light_pink_container">
+          <CardColors label="pink-light" />
+        </div>
+        <div id="medium_pink" class="medium_pink_container">
+          <CardColors label="pink-medium" />
+        </div>
+        <div id="dark_pink" class="dark_pink_container">
+          <CardColors label="pink-dark" />
+        </div>
+      </div>
+    </section>
+    <section id="red_color_section" class="p-4 my-4 w-100">
+      <div class="title_section_wrap">
+        <div
+          class="title_section_label w-100 flex justify-center text-2xl md:text-3xl lg:text-4xl"
+          data-index="1"
+        >
+          <h2 class="px-4 py-2 my-2">Red</h2>
+        </div>
+        <div class="stack_underline">
+          <div class="stack_underline"></div>
+        </div>
+        <div class="stack_underline_1">
+          <div class="stack_underline_1"></div>
+        </div>
+        <div class="stack_underline_2">
+          <div class="stack_underline_2"></div>
+        </div>
+      </div>
+      <div class="red_color_wrapper">
+        <div id="light_red" class="light_red_container">
+          <CardColors label="red-light" />
+        </div>
+        <div id="medium_red" class="medium_red_container">
+          <CardColors label="red-medium" />
+        </div>
+        <div id="dark_red" class="dark_red_container">
+          <CardColors label="red-dark" />
+        </div>
+      </div>
+    </section>
+    <section id="white_gray_color_section" class="p-4 my-4 w-100">
+      <div class="title_section_wrap">
+        <div
+          class="title_section_label w-100 flex justify-center text-2xl md:text-3xl lg:text-4xl"
+          data-index="1"
+        >
+          <h2 class="px-4 py-2 my-2">White-Gray</h2>
+        </div>
+        <div class="stack_underline">
+          <div class="stack_underline"></div>
+        </div>
+        <div class="stack_underline_1">
+          <div class="stack_underline_1"></div>
+        </div>
+        <div class="stack_underline_2">
+          <div class="stack_underline_2"></div>
+        </div>
+      </div>
+      <div class="white_color_wrapper">
+        <div id="light_white" class="light_white_container">
+          <CardColors label="white-light" />
+        </div>
+        <div id="medium_white" class="medium_white_container">
+          <CardColors label="white-medium" />
+        </div>
+        <div id="dark_white" class="dark_white_container">
+          <CardColors label="white-dark" />
+        </div>
+      </div>
+    </section>
+    <section id="brown_black_color_section" class="p-4 my-4 w-100">
+      <div class="title_section_wrap">
+        <div
+          class="title_section_label w-100 flex justify-center text-2xl md:text-3xl lg:text-4xl"
+          data-index="1"
+        >
+          <h2 class="px-4 py-2 my-2">Brown-Black</h2>
+        </div>
+        <div class="stack_underline">
+          <div class="stack_underline"></div>
+        </div>
+        <div class="stack_underline_1">
+          <div class="stack_underline_1"></div>
+        </div>
+        <div class="stack_underline_2">
+          <div class="stack_underline_2"></div>
+        </div>
+      </div>
+      <div class="black_color_wrapper">
+        <div id="light_black" class="light_black_container">
+          <CardColors label="black-light" />
+        </div>
+        <div id="medium_black" class="medium_black_container">
+          <CardColors label="black-medium" />
+        </div>
+        <div id="dark_black" class="dark_black_container">
+          <CardColors label="black-dark" />
+        </div>
       </div>
     </section>
     <section id="my_website_color" class="my_website_color w-100">

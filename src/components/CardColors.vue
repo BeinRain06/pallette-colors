@@ -2,49 +2,55 @@
 import { ref, computed } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import { blueColorStore } from '../stores/blue-color'
+import { greenColorStore } from '../stores/green-color'
+import { purpleColorStore } from '../stores/purple-color'
+import { orangeColorStore } from '../stores/orange-color'
+import { yellowColorStore } from '../stores/yellow-color'
+import { pinkColorStore } from '../stores/pink-color'
+import { redColorStore } from '../stores/red-color'
+import { whiteGrayColorStore } from '../stores/white-gray-color'
+import { brownBlackColorStore } from '../stores/brown-black-color'
 
 const props = defineProps<{ label: string }>()
 
 let valueArr = ref([])
+let category = ref('')
 
 const arrBgColors = computed(() => {
-  console.log('props elements:', props)
-
-  let arrColors = [] as Array<string>
-
   const arrLabel = props.label.split('-')
-
-  console.log('arrLabel :', arrLabel)
+  category.value = arrLabel[1]
+  let arrCollect
 
   if (arrLabel[0] === 'blue') {
-    const useBlueStore = blueColorStore()
-
-    switch (arrLabel[1]) {
-      case 'light':
-        arrColors = useBlueStore.blueLightArr
-        console.log('arrColors :', arrColors)
-        break
-      case 'medium':
-        arrColors = useBlueStore.blueMidArr
-        break
-      case 'dark':
-        arrColors = useBlueStore.blueDarkArr
-        break
-      default:
-        throw Error('Something went wrong getting blueColors Array')
-    }
+    const useBlueColorStore = blueColorStore()
+    arrCollect = useBlueColorStore.switchInstance(arrLabel[1], arrLabel[0])
   } else if (arrLabel[0] === 'green') {
+    const useGreenColorStore = greenColorStore()
+    arrCollect = useGreenColorStore.switchInstance(arrLabel[1], arrLabel[0])
   } else if (arrLabel[0] === 'purple') {
+    const usePurpleColorStore = purpleColorStore()
+    arrCollect = usePurpleColorStore.switchInstance(arrLabel[1], arrLabel[0])
   } else if (arrLabel[0] === 'orange') {
-  } else if (arrLabel[0] === 'orange') {
+    const useOrangeColorStore = orangeColorStore()
+    arrCollect = useOrangeColorStore.switchInstance(arrLabel[1], arrLabel[0])
   } else if (arrLabel[0] === 'yellow') {
+    const useYellowColorStore = yellowColorStore()
+    arrCollect = useYellowColorStore.switchInstance(arrLabel[1], arrLabel[0])
   } else if (arrLabel[0] === 'pink') {
+    const usePinkColorStore = pinkColorStore()
+    arrCollect = usePinkColorStore.switchInstance(arrLabel[1], arrLabel[0])
   } else if (arrLabel[0] === 'red') {
+    const useRedColorStore = redColorStore()
+    arrCollect = useRedColorStore.switchInstance(arrLabel[1], arrLabel[0])
   } else if (arrLabel[0] === 'white') {
+    const useWhiteGrayColorStore = whiteGrayColorStore()
+    arrCollect = useWhiteGrayColorStore.switchInstance(arrLabel[1], arrLabel[0])
   } else if (arrLabel[0] === 'black') {
+    const useBrownBlackColorStore = brownBlackColorStore()
+    arrCollect = useBrownBlackColorStore.switchInstance(arrLabel[1], arrLabel[0])
   }
 
-  return arrColors
+  return arrCollect
 })
 
 function myBgColor(item) {
@@ -61,7 +67,7 @@ function myBgColor(item) {
           style="height: 1px; box-shadow: 2px 1px 3px red"
         ></div>
         <div class="box_range_label">
-          <span class="range_label">strong</span>
+          <span class="range_label">{{ category }}</span>
         </div>
         <div class="square_range_wrapper w-100 flex justify-center gap-4">
           <div class="mini_square_range w-5 h-2 border border-solid border-current"></div>

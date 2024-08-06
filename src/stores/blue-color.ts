@@ -2,26 +2,9 @@ import { defineStore } from 'pinia'
 
 export const blueColorStore = defineStore('blue', {
   state: () => ({
-    blueLight: [
-      '#3d72af',
-      '#3989e6',
-      '#507caf',
-      '#487fbd',
-      '#61a6f5',
-      '#92bae7',
-      '#8fbff7'
-    ] as Array<string>,
-    blueMid: ['#1f4088', '#2d4b8b', '#2e509b', '#234da7', '#1242ac', '#294fa1'] as Array<string>,
-    blueDark: [
-      '#190644',
-      '#0e0446',
-      '#150957',
-      '#200957',
-      '#090a57',
-      '#0b1863',
-      '#041470',
-      '#0d1d79'
-    ] as Array<string>
+    blueLight: ['#3d72af', '#3989e6', '#507caf', '#487fbd'] as Array<string>,
+    blueMid: ['#1f4088', '#2d4b8b', '#2e509b', '#234da7'] as Array<string>,
+    blueDark: ['#190644', '#0e0446', '#150957', '#200957'] as Array<string>
   }),
   getters: {
     blueLightArr: (state) => state.blueLight,
@@ -51,6 +34,25 @@ export const blueColorStore = defineStore('blue', {
         newArr = this.blueDark.filter((color) => color !== blueHexColor)
         this.blueDark = newArr
       }
+    },
+    switchInstance(label: string): Array<string> {
+      let arrColors: string[] = []
+
+      switch (label) {
+        case 'light':
+          arrColors = this.blueLightArr
+          break
+        case 'medium':
+          arrColors = this.blueMidArr
+          break
+        case 'dark':
+          arrColors = this.blueDarkArr
+          break
+        default:
+          throw Error('Something went wrong getting blueColors Array')
+      }
+
+      return arrColors
     }
   }
 })
