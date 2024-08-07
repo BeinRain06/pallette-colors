@@ -1,4 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import { mindTestColorStore } from '../stores/mind-color-trial'
+
+const arrMindAssociation = computed(() => {
+  const useMindTestColorStore = mindTestColorStore()
+
+  const catchArr = useMindTestColorStore.catchMelting
+
+  console.log('catchArr:', catchArr)
+
+  return catchArr
+})
+</script>
 <template>
   <div class="mind_colors_container w-100">
     <div class="title_mind_wrap">
@@ -18,42 +31,23 @@
           <div class="base_pattern_content">
             <div class="base_pattern_one w-100">
               <table class="table_colors w-100">
-                <tbody class="table_content">
+                <tbody class="table_content" v-for="(mindColor, i) in arrMindAssociation">
                   <tr>
                     <th
                       class="title_element_color w-48 font-medium border border-solid border-black"
                     >
-                      pallette-color_1
+                      {{ mindColor.title }}
                     </th>
                   </tr>
                   <tr class="table_elements">
-                    <td class="element_color">color1</td>
-                    <td class="element_color">color2</td>
-                    <td class="element_color">color3</td>
+                    <td class="element_color" v-for="(item, i) in mindColor.colorsArr1">
+                      {{ item }}
+                    </td>
                   </tr>
                   <tr class="table_elements">
-                    <td class="element_color">color4</td>
-                    <td class="element_color">color5</td>
-                    <td class="element_color">color6</td>
-                  </tr>
-                </tbody>
-                <tbody class="table_content">
-                  <tr>
-                    <th
-                      class="title_element_color w-48 font-medium border border-solid border-black"
-                    >
-                      pallette-color_2
-                    </th>
-                  </tr>
-                  <tr class="table_elements">
-                    <td class="element_color">color1</td>
-                    <td class="element_color">color2</td>
-                    <td class="element_color">color3</td>
-                  </tr>
-                  <tr class="table_elements">
-                    <td class="element_color">color4</td>
-                    <td class="element_color">color5</td>
-                    <td class="element_color">color6</td>
+                    <td class="element_color" v-for="(item, i) in mindColor.colorsArr2">
+                      {{ item }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -70,6 +64,13 @@
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
+}
+
+.element_color:nth-child(odd) {
+  background-color: #ad846c;
+}
+.element_color:nth-child(even) {
+  background-color: #82b98b;
 }
 
 @media (min-width: 210px) {
@@ -172,6 +173,7 @@
 
   .table_elements .element_color {
     width: 29vw;
+    color: #fff;
     padding-left: 0.75rem;
     height: 35px;
     font-size: calc(12px + 0.1vw);
@@ -201,7 +203,6 @@
     height: 36px;
   }
   .table_elements .element_color {
-    padding-left: 0.75rem;
     font-size: 15px;
   }
 }
@@ -214,7 +215,7 @@
   }
 
   .mind_pattern_content {
-    width: 80%;
+    width: 84%;
   }
 
   .table_content {
