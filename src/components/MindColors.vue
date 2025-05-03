@@ -15,7 +15,7 @@ const arrMindAssociation = computed(() => {
 <template>
   <div class="mind_colors_container w-100">
     <div class="title_mind_wrap">
-      <h3 class="title_mind karla-600 p-2">Mind Colors Trial</h3>
+      <h3 class="title_mind note-serif-400 p-2">Mind Colors Trial</h3>
     </div>
     <div class="mind_pattern_wrapper w-100 my-2">
       <div class="mind_pattern_content">
@@ -59,13 +59,6 @@ const arrMindAssociation = computed(() => {
   </div>
 </template>
 <style scoped>
-.karla-600 {
-  font-family: 'Karla', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-}
-
 .element_color:nth-child(odd) {
   background-color: #ad846c;
 }

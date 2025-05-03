@@ -1,6 +1,6 @@
 @import './base.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..90&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap&https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -21,30 +21,22 @@
   );
 
   --background-image-upper-lower-rocket: none;
+
+  /* colors web design */
 }
 
 /* font-family */
 
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 900
+/* // <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name
 
-.playfair-display-<uniquifier> {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-} */
-
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 900
-
-.inter-<uniquifier> {
-  font-family: "Inter", sans-serif;
+.noto-serif-<uniquifier> {
+  font-family: "Noto Serif", serif;
   font-optical-sizing: auto;
   font-weight: <weight>;
   font-style: normal;
   font-variation-settings:
-    "slnt" 0;
+    "wdth" 100;
 } */
 
 /* // <uniquifier>: Use a unique and descriptive class name
@@ -57,14 +49,16 @@
   font-style: normal;
 } */
 
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 200 to 800
+/* // <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name
 
-.karla-<uniquifier> {
-  font-family: "Karla", sans-serif;
+.noto-sans-<uniquifier> {
+  font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: <weight>;
   font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 } */
 
 /*angle up pointing : &#65085; */
@@ -76,6 +70,11 @@
     background-color: #f4f4f4;
     overflow-x: hidden;
     /* color: #ad846c; */
+    font-family: 'Noto Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
   }
 
   #app {
@@ -83,6 +82,52 @@
     margin: 0 auto;
     padding: 0;
     font-weight: normal;
+  }
+
+  /* font families */
+  /* headlines - logo */
+  .edu-au-vic-wa-nt-hand-500 {
+    font-family: 'Edu AU VIC WA NT Hand', cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  /* title */
+  .note-serif-400 {
+    font-family: 'Noto Serif', serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+  }
+
+  /* sub-title */
+
+  .karla-500 {
+    font-family: 'Karla', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  /* text */
+  .noto-sans-400 {
+    font-family: 'Noto Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+  }
+
+  /* font  size */
+  h2,
+  h3 {
+    font-family: 'Noto Serif', serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
   }
 }
 

@@ -2,7 +2,7 @@
 <template>
   <div class="inspiring_wrapper mt-10 py-2">
     <div class="title_inspiring_wrap my-2 sm:my-4">
-      <h3 class="title_inspiring karla-600 p-2">Seek InspiraTion</h3>
+      <h3 class="title_inspiring note-serif-400 p-2">Seek InspiraTion</h3>
     </div>
     <div class="inspiring_container w-100">
       <div class="inspiring_content w-100 p-2">

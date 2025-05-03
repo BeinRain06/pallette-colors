@@ -192,7 +192,7 @@ function resetDataColor(e) {
           </div>
           <div class="color_cementation bg-pink-400">
             <div class="color_background_wrap w-100 my-2" @click.prevent="resetDataColor">
-              <span class="title_cementation edu-au-vic-wa-nt-hand-530">Background Color</span>
+              <span class="title_cementation edu-au-vic-wa-nt-hand-500">Background Color</span>
               <ul class="color_background w-100 py-1 px-2 flex justify-center">
                 <li class="color_cement" v-for="(item, i) in project.bgColors">
                   <div
@@ -211,7 +211,7 @@ function resetDataColor(e) {
               </div>
             </div>
             <div class="color_text_wrap w-100 my-1" @click.prevent="resetDataColor">
-              <span class="title_cementation edu-au-vic-wa-nt-hand-530">Text Color</span>
+              <span class="title_cementation edu-au-vic-wa-nt-hand-500">Text Color</span>
               <ul class="color_text w-100 py-1 px-2 flex justify-center">
                 <li class="color_cement" v-for="(item, i) in project.textColors">
                   <div
@@ -234,9 +234,9 @@ function resetDataColor(e) {
         <div class="app_pattern_side">
           <div class="color_mood_wrap w-100 sm:w-1/2 h-44 sm:h-auto bg-purple-200">
             <div class="pattern_ct">
-              <h3 class="title_pattern_ct inter-400">Colors Mood</h3>
+              <h3 class="title_pattern_ct">Colors Mood</h3>
               <ul class="pattern_list w-9/12 flex flex-col justify-center items-center mx-auto">
-                <li class="moody_sensation karla-530" v-for="(item, i) in colorsmood">
+                <li class="moody_sensation" v-for="(item, i) in colorsmood">
                   {{ item }}
                 </li>
               </ul>
@@ -244,9 +244,9 @@ function resetDataColor(e) {
           </div>
           <div class="color_story_wrap w-100 sm:w-1/2 h-44 sm:h-auto bg-blue-200">
             <div class="pattern_ct">
-              <h3 class="title_pattern_ct inter-400">Story</h3>
+              <h3 class="title_pattern_ct">Story</h3>
               <ul class="pattern_list w-9/12 flex flex-col justify-center items-center mx-auto">
-                <li class="moody_sensation karla-530" v-for="(item, i) in storypattern">
+                <li class="moody_sensation" v-for="(item, i) in storypattern">
                   {{ item }}
                 </li>
               </ul>
@@ -259,42 +259,6 @@ function resetDataColor(e) {
 </template>
 
 <style scoped>
-.inter-400 {
-  font-family: 'Inter', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: 'slnt' 0;
-}
-
-.karla-530 {
-  font-family: 'Karla', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 530;
-  font-style: normal;
-}
-
-.karla-600 {
-  font-family: 'Karla', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.edu-au-vic-wa-nt-hand-530 {
-  font-family: 'Edu AU VIC WA NT Hand', cursive;
-  font-optical-sizing: auto;
-  font-weight: 530;
-  font-style: normal;
-}
-
-.playfair-display-600 {
-  font-family: 'Playfair Display', serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-}
-
 @media (min-width: 210px) {
   .title_melting_wrap {
     max-width: 580px;

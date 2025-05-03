@@ -7,6 +7,15 @@ let newIndex = reactive({ count: 1 })
 
 let status = reactive({ inState: false })
 
+type ColorItem = {
+  colors: {
+    0: {
+      title: string
+      backgroundImage: string[]
+    }
+  }
+}
+
 const itemRefs = ref([])
 const itemRockets = ref([])
 const itemAquariums = ref([])
@@ -15,7 +24,7 @@ const itemsArrValue = ref([])
 let arrGradTitle = computed(() => {
   const useGradientStore = gradientStore()
 
-  const gradientsArr = useGradientStore.gradientColors[props.indexColor]
+  const gradientsArr: ColorItem = useGradientStore.gradientColors[props.indexColor]
 
   return gradientsArr.title
 })
@@ -23,26 +32,26 @@ let arrGradTitle = computed(() => {
 let arrGradColor = computed(() => {
   const useGradientStore = gradientStore()
 
-  const gradientsArr = useGradientStore.gradientColors[props.indexColor]
+  const gradientsArr: ColorItem = useGradientStore.gradientColors[props.indexColor]
 
   console.log(gradientsArr.backgroundImage)
 
   return gradientsArr.backgroundImage
 })
 
-function bgGradient(item) {
+function bgGradient(item: string) {
   console.log('item: ', item)
   return { backgroundImage: item }
 }
 
-function handleToggling(e) {
+function handleToggling(e: MouseEvent) {
   const itemsInput = Array.from(itemRefs.value)
   const itemsRoc = Array.from(itemRockets.value)
   const itemsAqua = Array.from(itemAquariums.value)
 
   console.log('aqua:', itemsAqua)
 
-  const i = parseInt(e.currentTarget.getAttribute('data-index'))
+  const i = parseInt(e.currentTarget?.getAttribute('data-index'))
 
   itemsInput.forEach((elt, j) => {
     console.log(elt)
@@ -92,14 +101,14 @@ function handleCopy(e) {
 <template>
   <div class="gradient_container w-100 my-2 sm:m-2">
     <div class="title_gradient_wrap w-100 my-2 md:w-2/5">
-      <h3 class="title_gradient karla-600 p-2">Personalized Gradient</h3>
+      <h3 class="title_gradient note-serif-400 p-2">Personalized Gradient</h3>
     </div>
     <div class="gradient_ct w-100 py-2 sm:p-2 my-2">
       <div class="inline-flex">
         <h3 class="title_gradient_list inter-300">{{ arrGradTitle }}</h3>
       </div>
       <ul class="gradient_list">
-        <li class="gradient_box w-100 h-100 p-2" v-for="(item, i) in arrGradColor">
+        <li class="gradient_box w-100 h-100 p-2" :key="i" v-for="(item, i) in arrGradColor">
           <div class="gradient_space_color">
             <div id="rocket_gradient" class="rocket_gradient_color" ref="itemRockets">
               <div id="launch_upper_rocket" class="upper_rocket">
@@ -151,21 +160,6 @@ function handleCopy(e) {
 </template>
 
 <style scoped>
-.karla-600 {
-  font-family: 'Karla', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.inter-300 {
-  font-family: 'Inter', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  font-variation-settings: 'slnt' 0;
-}
-
 @media (min-width: 210px) {
   .title_gradient_wrap {
     max-width: 580px;
